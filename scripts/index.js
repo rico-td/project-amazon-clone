@@ -51,7 +51,7 @@ productsHTML +=  `
       Added
     </div>
 
-    <button class="add-to-cart-button button-primary" data-product-id="${product.id}">
+    <button class="add-to-cart-button button-primary js-add-to-cart-${product.id}" data-product-id="${product.id}">
       Add to Cart
     </button>
   </div>
@@ -70,7 +70,7 @@ document.querySelectorAll('.add-to-cart-button')
 
   	button.addEventListener('click', () => {
 		const {productId} = button.dataset;
-			
+		console.log('click')
 		const messageElement = document.querySelector(`.js-add-message-${productId}`)
 		messageElement.classList.add('added-to-cart-visible')
 		
@@ -78,9 +78,15 @@ document.querySelectorAll('.add-to-cart-button')
 			clearTimeout(addedMessageTimeoutId)
 		}
 
+		// handle feedback added product
+		let buttonElement = document.querySelector(`.js-add-to-cart-${productId}`)
+		buttonElement.disabled = true
 		const timeoutId = setTimeout(() => {
 			messageElement.classList.remove('added-to-cart-visible')
-		}, 2000);
+			
+			// avoid double click for add
+			buttonElement.disabled = false
+		}, 1500);
 		
 		addedMessageTimeoutId = timeoutId;
 
