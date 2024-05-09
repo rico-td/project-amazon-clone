@@ -57,56 +57,64 @@ productsHTML +=  `
 })
 
 document.querySelector('.products-grid')
-    .innerHTML = productsHTML;
+	.innerHTML = productsHTML;
 
 
 document.querySelectorAll('.add-to-cart-button')
     .forEach((button) => {
-        button.addEventListener('click', () => {
-          const {productId} = button.dataset;
-              
-          const messageElement = document.querySelector(`.js-add-message-${productId}`)
-          messageElement.classList.add('added-to-card-visible')
-          setTimeout(() => {
-            messageElement.classList.remove('added-to-card-visible')
-          }, 2000);
 
-          console.log(messageElement)
+	let addedMessageTimeoutId;
 
-          let matchingItem; 
-          card.forEach((item) => {
+  	button.addEventListener('click', () => {
+		const {productId} = button.dataset;
+			
+		const messageElement = document.querySelector(`.js-add-message-${productId}`)
+		messageElement.classList.add('added-to-card-visible')
+		
+		if (addedMessageTimeoutId) {
+			clearTimeout(addedMessageTimeoutId)
+		}
 
-              if (productId === item.productId) {
-                  matchingItem = item
-              }
-          });
+		const timeoutId = setTimeout(() => {
+			messageElement.classList.remove('added-to-card-visible')
+		}, 2000);
+		
+		addedMessageTimeoutId = timeoutId;
 
-          const quantitySelector = document.querySelector(
-              `.js-quantity-selector-${productId}`
-            );
-          
-          const quantity = Number(quantitySelector.value);
-      
-            if (matchingItem) {
-              
-              matchingItem.quantity += quantity;
-              quantitySelector.value = 1
-            } else {
-              card.push({
-                productId,
-                quantity
-              });
-              quantitySelector.value = 1
-            }
+		let matchingItem; 
+		card.forEach((item) => {
 
-          let cardQantity = 0
+			if (productId === item.productId) {
+				matchingItem = item
+			}
+		});
 
-          card.forEach((item) => {
-              cardQantity += item.quantity
-              document.querySelector('.js-cart-quantity').innerHTML = cardQantity
-          })
+		const quantitySelector = document.querySelector(
+			`.js-quantity-selector-${productId}`
+		);
+		
+		const quantity = Number(quantitySelector.value);
 
-        });
-    });
+		if (matchingItem) {
+			
+			matchingItem.quantity += quantity;
+			quantitySelector.value = 1
+		} else {
+			card.push({
+			productId,
+			quantity
+			});
+			quantitySelector.value = 1
+		}
+
+		let cardQantity = 0
+
+		card.forEach((item) => {
+			cardQantity += item.quantity
+			document.querySelector('.js-cart-quantity').innerHTML = cardQantity
+		})
+
+	});
+});
 
     
