@@ -44,6 +44,7 @@ export function removeFromCart(productId) {
 	cart.map((item) => {
 		if (item.productId === productId) {
 			cart.splice(cart.indexOf(item), 1);
+			document.querySelector('.').
 		}
 	})
 }
