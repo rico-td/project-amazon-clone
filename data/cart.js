@@ -43,3 +43,24 @@ export function removeFromCart(productId) {
 	saveCartInLocalStorage()
 }
 
+export function DeliveryDate(shippingType) {   
+    const currentDay = dayjs();
+    let deliveryDay;
+
+    switch (shippingType) {
+        case "normal":
+            deliveryDay = currentDay.add(7, 'day');
+            break;
+        case "express":
+            deliveryDay = currentDay.add(3, 'day');
+            break;
+        case "overnight":
+            deliveryDay = currentDay.add(1, 'day');
+            break;
+        default:
+            return "Invalid shipping type";
+    }
+
+    return deliveryDay.format('dddd, MMMM D');
+}
+
