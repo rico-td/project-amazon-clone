@@ -1,5 +1,6 @@
 import {cart, addToCart } from '../data/cart.js'
 import {products} from '../data/products.js'
+import { formatPrice } from "../utils/money.js";
 
 const productsContainer = document.querySelector('.products-grid');
 updateCartQuantity();
@@ -26,7 +27,7 @@ const renderProducts = () => {
     </div>
 
     <div class="product-price">
-     ${product.priceCents / 100}$
+     $${formatPrice(product.priceCents)}
     </div>
 
     <div class="product-quantity-container">

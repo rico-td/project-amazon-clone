@@ -48,6 +48,3 @@ export function removeFromCart(productId) {
 	})
 }
 
-export function formatPrice(priceCents) {
-	(priceCents / 100).toFixed(2)
-}
