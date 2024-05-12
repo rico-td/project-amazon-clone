@@ -57,7 +57,7 @@ cart.forEach(item => {
                     name="${productId}">
                 <div>
                     <div class="delivery-option-date">
-                   free: ${DeliveryDate('normal')} 
+                   ${DeliveryDate('normal')} 
                     </div>
                     <div class="delivery-option-price">
                     FREE Shipping
@@ -69,10 +69,10 @@ cart.forEach(item => {
                 name="${productId}">
                 <div>
                     <div class="delivery-option-date">
-                    express: ${DeliveryDate('express')} 
+                    ${DeliveryDate('express')} 
                     </div>
                     <div class="delivery-option-price">
-                    $4.99 - Shipping
+                    $4.99 - express shipping
                     </div>
                 </div>
                 </div>
@@ -81,10 +81,10 @@ cart.forEach(item => {
                 name="${productId}">
                 <div>
                     <div class="delivery-option-date">
-                    overnight: ${DeliveryDate('overnight')} 
+                    ${DeliveryDate('overnight')} 
                     </div>
                     <div class="delivery-option-price">
-                    $9.99 - Shipping
+                    $9.99 - overnight shipping
                     </div>
                 </div>
                 </div>
@@ -101,9 +101,9 @@ document.querySelectorAll('.js-delete-link')
     .forEach((link) => {
     link.addEventListener('click', () => {
 
-        const productId = link.dataset.productId;
-        console.log(productId)
+        productId = link.dataset.productId;
         removeFromCart(productId)
         document.querySelector(`.js-item-container-${productId}`).remove(); 
     });
 })  
+*
