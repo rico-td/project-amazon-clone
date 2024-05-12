@@ -31,7 +31,7 @@ export function addToCart(productId) {
 		quantitySelector.value = 1
 	}
 	saveCartInLocalStorage()
-
+	return quantity
 }
 
 export function removeFromCart(productId) {

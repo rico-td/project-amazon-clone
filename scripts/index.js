@@ -49,7 +49,7 @@ const renderProducts = () => {
 
     <div class="added-to-cart js-add-message-${product.id}">
       <img src="images/icons/checkmark.png">
-Added to Cart ()
+Added to Cart
     </div>
 
     <button class="add-to-cart-button button-primary js-add-to-cart-${product.id}" data-product-id="${product.id}">
