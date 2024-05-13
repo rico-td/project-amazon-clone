@@ -22,6 +22,7 @@ export function addToCart(productId) {
   cart.forEach((cartItem) => {
     if (productId === cartItem.productId) {
       matchingItem = cartItem;
+      console.log(matchingItem);
     }
   });
 
@@ -30,7 +31,6 @@ export function addToCart(productId) {
   } else {
     cart.push({
       productId: productId,
-      quantity: 1,
       deliveryOptionId: '1'
     });
   }
