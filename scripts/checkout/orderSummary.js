@@ -138,4 +138,4 @@ export function renderOrderSummary() {
     });
   }
   
-  console.assert.cartSummaryHTML
+ 
