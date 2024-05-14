@@ -29,7 +29,7 @@ products.forEach((product) => {
       </div>
 
       <div class="product-quantity-container">
-        <select>
+      <select class="js-quantity-selector-${product.id}">
           <option selected value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -66,50 +66,53 @@ function updateCartQuantity() {
   cart.forEach((item) => {
     cartQuantity += item.quantity;
   });
-
   document.querySelector('.js-cart-quantity')
     .innerHTML = cartQuantity;
 }
 updateCartQuantity();
 
+// handle item add to cart button click event
 document.querySelectorAll('.js-add-to-cart')
   .forEach((button) => {
     button.addEventListener('click', () => {
+      
+      button.timeoutId = null;
+      console.log('should be null:', button.timeoutId)
+
+      if (button.timeoutId) {
+        clearTimeout(button.timeoutId)
+      }
+
       const productId = button.dataset.productId;
-      addToCart(productId);
+      button.disabled = true;
+
+      const addedQuantity = addToCart(productId);
+
+      console.log();
+
       updateCartQuantity();
-   
+      
+      const messageElement = document.querySelector(`.js-add-message-${productId}`)
+      messageElement.classList.add('added-to-cart-visible')
+      messageElement.innerHTML = `Added to Cart (${addedQuantity})`;
+      
+      button.timeoutId = setTimeout(() => {
+      
+        messageElement.classList.remove('added-to-cart-visible')
+        button.disabled = false
+        button.timeoutId = null;
+      
+      }, 1000);	
     });
   })
   
-// function handleClickAddToCart () {
+// handle add to cart button click event
+// document.querySelectorAll('.js-add-to-cart')
 
-//   document.querySelectorAll('.js-add-to-cart')
 //   .forEach((button) => {
 //     button.addEventListener('click', () => {
 
-//       console.log(button.timeoutId)
-
-//       if (button.timeoutId) {
-//         clearTimeout(button.timeoutId)
-//       }
       
-//       button.disabled = true;
-//       const productId = button.dataset.productId;
-//       const addedQuantity = addToCart(productId);
-      
-//       const messageElement = document.querySelector(`.js-add-message-${productId}`)
-//       messageElement.classList.add('added-to-cart-visible')
-//       messageElement.innerHTML = `Added to Cart (${addedQuantity})`;
-
-//       button.timeoutId = setTimeout(() => {
-
-//         messageElement.classList.remove('added-to-cart-visible')
-//         button.disabled = false
-//         button.timeoutId = null;
-      
-//       }, 1000);	
 //     });
 //     console.log(button.timeoutId)
-//   });
-// };
+// });
