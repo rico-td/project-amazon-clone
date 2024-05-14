@@ -1,4 +1,4 @@
-import {cart, removeFromCart, updateDeliveryOption} from '../../data/cart.js';
+import {cart, removeFromCart, updateDeliveryOption, saveToStorage} from '../../data/cart.js';
 import {products, getProduct} from '../../data/products.js';
 import {formatCurrency} from '../../utils/money.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
@@ -41,15 +41,29 @@ export function renderOrderSummary() {
               ${matchingProduct.name}
             </div>
             <div class="product-price">
-              $${formatCurrency(matchingProduct.priceCents)}
+              $${formatCurrency(matchingProduct.priceCents * cartItem.quantity)}
             </div>
             <div class="product-quantity">
               <span>
-                Quantity: <span class="quantity-label">${cartItem.quantity}</span>
+                Quantity: ${cartItem.quantity}
               </span>
-              <span class="update-quantity-link link-primary">
-                Update
-              </span>
+                <span>
+                <select class="js-quantity-selector-cart js-${matchingProduct.id}" data-product-id="${matchingProduct.id}">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>"
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+              </span> 
+              <span class="update-quantity-link link-primary js-update-quantity" data-product-id="${matchingProduct.id}">
+              Update
+            </span>
               <span class="delete-quantity-link link-primary js-delete-link" data-product-id="${matchingProduct.id}">
                 Delete
               </span>
@@ -135,6 +149,37 @@ export function renderOrderSummary() {
         renderPaymentSummary();
       });
     });
-  }
+    
+    document.querySelectorAll(`.js-update-quantity`)
+      .forEach((element) => {
+      element.addEventListener('click', () => {
+        
+        const productId = element.dataset.productId;
+        const quantitySelector = document.querySelector(`.js-${productId}`)   
+        let quantity = Number(quantitySelector.value);
+      console.log(quantity)
+        cart.forEach(item => {
+
+          if (item.productId === productId) {
+            
+            quantitySelector.value = item.quantity;
+            item.quantity = quantity;
+            saveToStorage();
+          }
+        });
+        
+    
+        renderOrderSummary();
+        renderCheckoutHeader();
+        renderPaymentSummary();
+      });
+    })
+  };
+  
   
   console.assert.cartSummaryHTML
+
+
+
+
+
