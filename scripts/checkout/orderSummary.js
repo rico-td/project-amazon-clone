@@ -9,15 +9,13 @@ export function renderOrderSummary() {
   let cartSummaryHTML = '';
 
   cart.forEach((cartItem) => {
+
     const productId = cartItem.productId;
-
     const matchingProduct = getProduct(productId);
-
     const deliveryOptionId = cartItem.deliveryOptionId;
-
     const deliveryOption = getDeliveryOption(deliveryOptionId);
-
     const today = dayjs();
+
     const deliveryDate = today.add(
       deliveryOption.deliveryDays,
       'days'
@@ -25,6 +23,8 @@ export function renderOrderSummary() {
     const dateString = deliveryDate.format(
       'dddd, MMMM D'
     );
+
+
 
     cartSummaryHTML += `
       <div class="cart-item-container
@@ -78,12 +78,12 @@ export function renderOrderSummary() {
         'days'
       );
       const dateString = deliveryDate.format(
-        'dddd, MMMM D'
+        'dddd, MMMM, D'
       );
 
       const priceString = deliveryOption.priceCents === 0
         ? 'FREE'
-        : `$${formatCurrency(deliveryOption.priceCents)} -`;
+        : `$${formatCurrency(deliveryOption.priceCents)}`;
 
       const isChecked = deliveryOption.id === cartItem.deliveryOptionId;
 
@@ -100,7 +100,7 @@ export function renderOrderSummary() {
               ${dateString}
             </div>
             <div class="delivery-option-price">
-              ${priceString} Shipping
+              ${priceString} - Shipping
             </div>
           </div>
         </div>
