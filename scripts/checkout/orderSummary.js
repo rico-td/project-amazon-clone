@@ -24,8 +24,6 @@ export function renderOrderSummary() {
       'dddd, MMMM D'
     );
 
-
-
     cartSummaryHTML += `
       <div class="cart-item-container
         js-cart-item-container-${matchingProduct.id}">
@@ -130,7 +128,9 @@ export function renderOrderSummary() {
     document.querySelectorAll('.js-delivery-option')
     .forEach((element) => {
       element.addEventListener('click', () => {
+
         const {productId, deliveryOptionId} = element.dataset;
+
         updateDeliveryOption(productId, deliveryOptionId);
         renderOrderSummary();
         renderPaymentSummary();
