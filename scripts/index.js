@@ -76,9 +76,6 @@ document.querySelectorAll('.js-add-to-cart')
   .forEach((button) => {
     button.addEventListener('click', () => {
       
-      button.timeoutId = null;
-      console.log('should be null:', button.timeoutId)
-
       if (button.timeoutId) {
         clearTimeout(button.timeoutId)
       }
@@ -87,8 +84,6 @@ document.querySelectorAll('.js-add-to-cart')
       button.disabled = true;
 
       const addedQuantity = addToCart(productId);
-
-      console.log();
 
       updateCartQuantity();
       
@@ -105,14 +100,3 @@ document.querySelectorAll('.js-add-to-cart')
       }, 1000);	
     });
   })
-  
-// handle add to cart button click event
-// document.querySelectorAll('.js-add-to-cart')
-
-//   .forEach((button) => {
-//     button.addEventListener('click', () => {
-
-      
-//     });
-//     console.log(button.timeoutId)
-// });
