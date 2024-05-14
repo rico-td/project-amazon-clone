@@ -47,7 +47,7 @@ export function renderOrderSummary() {
               <span>
                 Quantity: ${cartItem.quantity}
               </span>
-                <span>
+                
                 <select class="js-quantity-selector-cart js-${matchingProduct.id}" data-product-id="${matchingProduct.id}">
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -60,7 +60,7 @@ export function renderOrderSummary() {
                   <option value="9">9</option>
                   <option value="10">10</option>
                 </select>
-              </span> 
+              
               <span class="update-quantity-link link-primary js-update-quantity" data-product-id="${matchingProduct.id}">
               Update
             </span>
