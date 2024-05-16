@@ -10,4 +10,5 @@ In the project directory, you can run:
   
   SpecRunner.html (for some unit tests) / integration tests will follow
 
+![grafik](https://github.com/rico-td/project-amazon-clone/assets/151479600/38d36ae1-6abe-41f9-b4f4-499f6702df04)
 
