@@ -96,5 +96,3 @@ document.querySelectorAll('.js-add-to-cart')
       }, 1000);	
     });
   })
-
-  console.log(cart);  

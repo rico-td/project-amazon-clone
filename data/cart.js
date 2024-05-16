@@ -54,7 +54,6 @@ export function addToCart(productId) {
     });
     quantitySelector.value = 1
   }
-  console.log(cart)
   saveToStorage();
   return quantity;
 }
