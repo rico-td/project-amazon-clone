@@ -12,6 +12,52 @@ export function getProduct(productId) {
 
 export const products = [
   {
+    id: "0d7f9afa-2efe-4fd9-b0fd-ba5663e0a524",
+    image: "images/products/coffeemaker-with-glass-carafe-black.jpg",
+    name: "Coffeemaker with Glass Carafe and Reusable Filter - 25 Oz, Black",
+    rating: {
+      stars: 4.5,
+      count: 1211
+    },
+    priceCents: 2250,
+    keywords: [
+      "coffeemakers",
+      "kitchen",
+      "appliances"
+    ]
+  },
+  {
+    id: "77919bbe-0e56-475b-adde-4f24dfed3a04",
+    image: "images/products/luxury-tower-set-6-piece.jpg",
+    name: "Luxury Towel Set - Graphite Gray",
+    rating: {
+      stars: 4.5,
+      count: 144
+    },
+    priceCents: 3599,
+    keywords: [
+      "bathroom",
+      "washroom",
+      "restroom",
+      "towels",
+      "bath towels"
+    ]
+  },
+  {
+    id: "aad29d11-ea98-41ee-9285-b916638cac4a",
+    image: "images/products/round-sunglasses-black.jpg",
+    name: "Round Sunglasses",
+    rating: {
+      stars: 4.5,
+      count: 30
+    },
+    priceCents: 1560,
+    keywords: [
+      "accessories",
+      "shades"
+    ]
+  },
+  {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
     image: "images/products/athletic-cotton-socks-6-pairs.jpg",
     name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
@@ -117,23 +163,6 @@ export const products = [
     ]
   },
   {
-    id: "77919bbe-0e56-475b-adde-4f24dfed3a04",
-    image: "images/products/luxury-tower-set-6-piece.jpg",
-    name: "Luxury Towel Set - Graphite Gray",
-    rating: {
-      stars: 4.5,
-      count: 144
-    },
-    priceCents: 3599,
-    keywords: [
-      "bathroom",
-      "washroom",
-      "restroom",
-      "towels",
-      "bath towels"
-    ]
-  },
-  {
     id: "3fdfe8d6-9a15-4979-b459-585b0d0545b9",
     image: "images/products/liquid-laundry-detergent-plain.jpg",
     name: "Liquid Laundry Detergent, 110 Loads, 82.5 Fl Oz",
@@ -180,20 +209,6 @@ export const products = [
     ],
     type: "clothing",
     sizeChartLink: "images/clothing-size-chart.png"
-  },
-  {
-    id: "aad29d11-ea98-41ee-9285-b916638cac4a",
-    image: "images/products/round-sunglasses-black.jpg",
-    name: "Round Sunglasses",
-    rating: {
-      stars: 4.5,
-      count: 30
-    },
-    priceCents: 1560,
-    keywords: [
-      "accessories",
-      "shades"
-    ]
   },
   {
     id: "04701903-bc79-49c6-bc11-1af7e3651358",
@@ -545,21 +560,6 @@ export const products = [
       "boxes",
       "food containers",
       "kitchen"
-    ]
-  },
-  {
-    id: "0d7f9afa-2efe-4fd9-b0fd-ba5663e0a524",
-    image: "images/products/coffeemaker-with-glass-carafe-black.jpg",
-    name: "Coffeemaker with Glass Carafe and Reusable Filter - 25 Oz, Black",
-    rating: {
-      stars: 4.5,
-      count: 1211
-    },
-    priceCents: 2250,
-    keywords: [
-      "coffeemakers",
-      "kitchen",
-      "appliances"
     ]
   },
   {
