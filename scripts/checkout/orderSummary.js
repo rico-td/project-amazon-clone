@@ -83,27 +83,18 @@ export function renderOrderSummary() {
     setTimeout(() => {
 
       const selectElement = document.querySelector(`.js-quantity-selector-${productId}`);
-        console.log(selectElement)
-        console.log(productId)
-
+     
         selectElement.querySelectorAll('option').forEach(option => {
 
-            console.log(option.value)
-            console.log(matchingProduct)
-
             if (parseInt(option.value) === cartItem.quantity) {
-              console.log(true)
                 option.selected = true;
             } else {
-                option.selected = false;
-                console.log(false)
+                option.selected = false; 
             }
         });
-    }, 50); 
+    }, 5); 
   });
 
-
-  // Iteriere über die Optionen und setze das selected-Attribut basierend auf cartQuantity
 
   function deliveryOptionsHTML(matchingProduct, cartItem) {
     let html = '';
