@@ -40,6 +40,7 @@ describe('test suite: renderOrderSummary():', () => {
         renderOrderSummary();
 
         expect(document.querySelector('.js-order-summary')).not.toBeNull();
+        
    
 
     })
