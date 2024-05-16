@@ -13,9 +13,11 @@ describe('test suite: addToCart()', () => {
         `
           <select class="js-quantity-selector-${productId1}">
             <option value="1" selected>1</option>
+         
           </select>
           <select class="js-quantity-selector-${productId2}">
             <option value="1" selected>1</option>
+        
           </select>
         `
         
