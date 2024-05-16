@@ -1,5 +1,7 @@
 # Amazon Clone Project
 
+![grafik](https://github.com/rico-td/project-amazon-clone/assets/151479600/0ccfdcc3-35a7-41fe-a714-f3177458af50)
+
 this project is for practicing the use of Java Script.
 
 ## to run: click on the provided link on the top right
