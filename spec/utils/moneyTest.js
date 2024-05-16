@@ -1,6 +1,6 @@
 import { formatCurrency } from '../../utils/money.js';
 
-describe('test suit: formatCurrency', () => {
+describe('test suite: formatCurrency():', () => {
 
     // basic test
     it('should return a string with with two decimals', () => {

@@ -48,7 +48,7 @@ export function renderOrderSummary() {
                 Quantity: ${cartItem.quantity}
               </span>
                 
-                <select class="js-quantity-selector-cart js-${matchingProduct.id}" data-product-id="${matchingProduct.id}">
+                <select class="js-quantity-selector-${matchingProduct.id} js-${matchingProduct.id}" data-product-id="${matchingProduct.id}">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -157,7 +157,7 @@ export function renderOrderSummary() {
         const productId = element.dataset.productId;
         const quantitySelector = document.querySelector(`.js-${productId}`)   
         let quantity = Number(quantitySelector.value);
-      console.log(quantity)
+    
         cart.forEach(item => {
 
           if (item.productId === productId) {
