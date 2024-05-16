@@ -45,10 +45,10 @@ export function renderOrderSummary() {
             </div>
             <div class="product-quantity">
               <span>
-                Quantity: ${cartItem.quantity}
+                Quantity: 
               </span>
                 
-                <select class="js-quantity-selector-${matchingProduct.id} js-${matchingProduct.id}" data-product-id="${matchingProduct.id}">
+                <select class="js-quantity-selector-${matchingProduct.id}" data-product-id="${matchingProduct.id}">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -79,7 +79,31 @@ export function renderOrderSummary() {
         </div>
       </div>
     `;
+
+    setTimeout(() => {
+
+      const selectElement = document.querySelector(`.js-quantity-selector-${productId}`);
+        console.log(selectElement)
+        console.log(productId)
+
+        selectElement.querySelectorAll('option').forEach(option => {
+
+            console.log(option.value)
+            console.log(matchingProduct)
+
+            if (parseInt(option.value) === cartItem.quantity) {
+              console.log(true)
+                option.selected = true;
+            } else {
+                option.selected = false;
+                console.log(false)
+            }
+        });
+    }, 50); 
   });
+
+
+  // Iteriere über die Optionen und setze das selected-Attribut basierend auf cartQuantity
 
   function deliveryOptionsHTML(matchingProduct, cartItem) {
     let html = '';
@@ -155,7 +179,7 @@ export function renderOrderSummary() {
       element.addEventListener('click', () => {
         
         const productId = element.dataset.productId;
-        const quantitySelector = document.querySelector(`.js-${productId}`)   
+        const quantitySelector = document.querySelector(`.js-quantity-selector-${productId}`)   
         let quantity = Number(quantitySelector.value);
     
         cart.forEach(item => {

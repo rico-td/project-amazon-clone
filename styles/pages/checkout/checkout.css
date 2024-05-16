@@ -115,6 +115,13 @@
   margin-bottom: 5px;
 }
 
+.product-quantity {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 8px;
+}
+
 .product-quantity .link-primary {
   margin-left: 3px;      
 }

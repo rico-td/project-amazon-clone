@@ -7,7 +7,7 @@ describe('test suite: addToCart()', () => {
 
     beforeEach(() => {
 
-        localStorage.clear();
+        // localStorage.clear();
 
         document.querySelector('.js-testing-container').innerHTML += 
         `
