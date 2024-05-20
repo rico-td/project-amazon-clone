@@ -10,13 +10,13 @@ export function renderOrderSummary() {
   let cartSummaryHTML = '';
 
   cart.forEach((cartItem) => {
-
+    
     const productId = cartItem.productId;
     const matchingProduct = getProduct(productId);
     const deliveryOptionId = cartItem.deliveryOptionId;
     const deliveryOption = getDeliveryOption(deliveryOptionId);
     const today = dayjs();
-
+   
     const deliveryDate = today.add(
       deliveryOption.deliveryDays,
       'days'
@@ -26,7 +26,8 @@ export function renderOrderSummary() {
     );
 
     cartSummaryHTML += `
-      <div class="cart-item-container
+      <div class="cart-item-container 
+        js-cart-item-container
         js-cart-item-container-${matchingProduct.id}">
         <div class="delivery-date">
           Delivery date: ${dateString}
@@ -37,28 +38,28 @@ export function renderOrderSummary() {
             src="${matchingProduct.image}">
 
           <div class="cart-item-details">
-            <div class="product-name">
+            <div class="product-name js-product-name-${productId}">
               ${matchingProduct.name}
             </div>
             <div class="product-price">
               $${formatCurrency(matchingProduct.priceCents * cartItem.quantity)}
             </div>
-            <div class="product-quantity">
+            <div class="product-quantity js-product-quantity-${productId}">
               <span>
                 Quantity: 
               </span>
                 
                 <select class="js-quantity-selector-${matchingProduct.id}" data-product-id="${matchingProduct.id}">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>"
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
+                  <option class="opt" value="1">1</option>
+                  <option class="opt" value="2">2</option>
+                  <option class="opt" value="3">3</option>
+                  <option class="opt" value="4">4</option>
+                  <option class="opt" value="5">5</option>
+                  <option class="opt" value="6">6</option>
+                  <option class="opt" value="7">7</option>"
+                  <option class="opt" value="8">8</option>
+                  <option class="opt" value="9">9</option>
+                  <option class="opt" value="10">10</option>
                 </select>
               
               <span class="update-quantity-link link-primary js-update-quantity" data-product-id="${matchingProduct.id}">
@@ -80,22 +81,45 @@ export function renderOrderSummary() {
       </div>
     `;
 
-    setTimeout(() => {
+    const selectElement = document.querySelector(`.js-quantity-selector-${matchingProduct.id}`);
 
-      const selectElement = document.querySelector(`.js-quantity-selector-${productId}`);
-     
-        selectElement.querySelectorAll('option').forEach(option => {
-
-            if (parseInt(option.value) === cartItem.quantity) {
-                option.selected = true;
-            } else {
-                option.selected = false; 
-            }
-        });
-    }, 5); 
+    document.querySelectorAll('option').forEach(option => {
+      
+      if (parseInt(option.value) === cartItem.quantity) {
+        option.selected = true;
+        console.log(option.selected);
+      } else {
+        option.selected = false; 
+        console.log(option.selected);
+      }
+ 
+    });
   });
+  
+  // function updateQuantityOption(productId){
+    
+  //   cart.forEach(cartItem => {  
+  //   const selectElement = document.querySelector(`.js-quantity-selector-${productId}`);
 
+  //   console.log( selectElement.querySelectorAll('option'))
 
+  //   selectElement.querySelectorAll('option').forEach(option => {
+      
+  //     if (parseInt(option.value) === cartItem.quantity) {
+  //       option.selected = true;
+  //       console.log(option.selected);
+  //     } else {
+  //       option.selected = false; 
+  //       console.log(option.selected);
+  //     }
+ 
+  //   });
+  // });
+  // renderOrderSummary();
+  // }
+  // updateQuantityOption(productId)
+
+    
   function deliveryOptionsHTML(matchingProduct, cartItem) {
     let html = '';
 
@@ -183,7 +207,8 @@ export function renderOrderSummary() {
           }
         });
         
-    
+   
+        
         renderOrderSummary();
         renderCheckoutHeader();
         renderPaymentSummary();

@@ -11,14 +11,20 @@ describe('test suite: addToCart()', () => {
 
         document.querySelector('.js-testing-container').innerHTML += 
         `
+        <div class="js-testSuite">
           <select class="js-quantity-selector-${productId1}">
-            <option value="1" selected>1</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
          
           </select>
           <select class="js-quantity-selector-${productId2}">
-            <option value="1" selected>1</option>
+            <option value="1">1</option>
+            <option value="2">1</option>
+            <option value="3">1</option>
         
           </select>
+        </div>
         `
         
       });
