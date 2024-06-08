@@ -50,22 +50,22 @@ export function renderOrderSummary() {
               </span>
                 
                 <select class="js-quantity-selector-${matchingProduct.id}" data-product-id="${matchingProduct.id}">
-                  <option class="opt" value="1" ${cartItem.quantity === 1 ? 'selected' : ''}>1</option>
-                  <option class="opt" value="2" ${cartItem.quantity === 2 ? 'selected' : ''}>2</option>
-                  <option class="opt" value="3" ${cartItem.quantity === 3 ? 'selected' : ''}>3</option>
-                  <option class="opt" value="4" ${cartItem.quantity === 4 ? 'selected' : ''}>4</option>
-                  <option class="opt" value="5" ${cartItem.quantity === 5 ? 'selected' : ''}>5</option>
-                  <option class="opt" value="6" ${cartItem.quantity === 6 ? 'selected' : ''}>6</option>
-                  <option class="opt" value="7" ${cartItem.quantity === 7 ? 'selected' : ''}>7</option>"
-                  <option class="opt" value="8" ${cartItem.quantity === 8 ? 'selected' : ''}>8</option>
-                  <option class="opt" value="9" ${cartItem.quantity === 9 ? 'selected' : ''}>9</option>
+                  <option class="opt" value="1"  ${cartItem.quantity ===  1 ? 'selected' : ''}>1</option>
+                  <option class="opt" value="2"  ${cartItem.quantity ===  2 ? 'selected' : ''}>2</option>
+                  <option class="opt" value="3"  ${cartItem.quantity ===  3 ? 'selected' : ''}>3</option>
+                  <option class="opt" value="4"  ${cartItem.quantity ===  4 ? 'selected' : ''}>4</option>
+                  <option class="opt" value="5"  ${cartItem.quantity ===  5 ? 'selected' : ''}>5</option>
+                  <option class="opt" value="6"  ${cartItem.quantity ===  6 ? 'selected' : ''}>6</option>
+                  <option class="opt" value="7"  ${cartItem.quantity ===  7 ? 'selected' : ''}>7</option>
+                  <option class="opt" value="8"  ${cartItem.quantity ===  8 ? 'selected' : ''}>8</option>
+                  <option class="opt" value="9"  ${cartItem.quantity ===  9 ? 'selected' : ''}>9</option>
                   <option class="opt" value="10" ${cartItem.quantity === 10 ? 'selected' : ''}>10</option>
                 </select>
               
               <span class="update-quantity-link link-primary js-update-quantity" data-product-id="${matchingProduct.id}">
               Update
             </span>
-              <span class="delete-quantity-link link-primary js-delete-link" data-product-id="${matchingProduct.id}">
+              <span class="js-delete-link-${matchingProduct.id} delete-quantity-link link-primary js-delete-link" data-product-id="${matchingProduct.id}">
                 Delete
               </span>
             </div>
@@ -80,8 +80,10 @@ export function renderOrderSummary() {
         </div>
       </div>
     `;
-       
+
     });
+
+ 
     
   function deliveryOptionsHTML(matchingProduct, cartItem) {
     let html = '';
