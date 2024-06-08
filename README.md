@@ -4,13 +4,9 @@
 
 this project is for practicing the use of Java Script.
 
-## to run: click on the provided link on the top right
-
-In the project directory, you can run:
-
-  index.html
+## to run: click on the provided link on the top right in the about section
   
-  SpecRunner.html (for some unit and integration tests)
+## run specRunner.html for some tests with the testing framwork jasmine (some unit and integration tests)
 
 ![grafik](https://github.com/rico-td/project-amazon-clone/assets/151479600/38d36ae1-6abe-41f9-b4f4-499f6702df04)
 
