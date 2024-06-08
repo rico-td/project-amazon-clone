@@ -10,7 +10,7 @@ this project is for practicing the use of Java Script.
   
 ## unit and integration tests with jasmine
 
-  run specRunner.html for some tests with the testing framwork jasmine (some unit and integration tests)
+  run specRunner.html in the spec directory
 
 ![grafik](https://github.com/rico-td/project-amazon-clone/assets/151479600/38d36ae1-6abe-41f9-b4f4-499f6702df04)
 
