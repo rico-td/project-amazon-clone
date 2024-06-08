@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     it('renders the cart', () => {
     
-      // checkes
+      // checkes the cart quantity after rendering first
       expect(
         document.querySelectorAll('.js-cart-item-container')
         .length).toEqual(2);
