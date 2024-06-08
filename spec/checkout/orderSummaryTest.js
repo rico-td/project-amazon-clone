@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const nameHtml2 = document.querySelector(`.js-product-name-${productId2}`); 
     const quantityHtml2 = document.querySelector(`.js-product-quantity-${productId2}`); 
 
-    console.log(nameHtml1);
     beforeEach(() => {
 
       spyOn(localStorage, 'setItem');
@@ -55,12 +54,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     afterEach(() => { 
       localStorage.clear(); 
+      htmlContainer.innerHTML = ''; 
 
     })
 
     it('renders the cart', () => {
     
-      console.log()
       expect(
         document.querySelectorAll('.js-cart-item-container')
         .length).toEqual(2);
