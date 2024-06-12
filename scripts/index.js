@@ -4,8 +4,6 @@ import {formatCurrency} from '../utils/money.js';
 
 let productsHTML = '';
 
-console.log('hallo')
-
 products.forEach((product) => {
   productsHTML += `
     <div class="product-container">
@@ -44,6 +42,8 @@ products.forEach((product) => {
           <option value="10">10</option>
         </select>
       </div>
+
+      ${product.extraInfoHTML()}
 
       <div class="product-spacer"></div>
 
