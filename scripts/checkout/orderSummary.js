@@ -25,6 +25,12 @@ export function renderOrderSummary() {
       'dddd, MMMM D'
     );
 
+    const productPrice = matchingProduct.getPrice()
+    const quantity = cartItem.quantity
+   
+    const totalProductPrice = (productPrice * quantity).toFixed(2);
+ 
+
     cartSummaryHTML += `
       <div class="cart-item-container 
         js-cart-item-container
@@ -42,7 +48,7 @@ export function renderOrderSummary() {
               ${matchingProduct.name}
             </div>
             <div class="product-price">
-              $${formatCurrency(matchingProduct.priceCents * cartItem.quantity)}
+              $${totalProductPrice}
             </div>
             <div class="product-quantity js-product-quantity-${productId}">
               <span>
