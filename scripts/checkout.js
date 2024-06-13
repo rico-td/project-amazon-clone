@@ -9,26 +9,54 @@ import { loadCart } from '../data/cart.js';
 // import '../data/car.js';
 // import '../data/backend-practice.js';
 
-// multiple promises at the same time   
-Promise.all([
 
-    // fetch is cleaner and gives a promise back
-    loadProductsFetch(),
+async function loadPage() {
 
+    await loadProductsFetch();
+    // shortcut for 
+    // loadProductsFetch().then(() => { ... } );
 
-    new Promise((resolve) => {
+    await new Promise((resolve) => {
         loadCart(() => {
             resolve();  
         });
     })
 
-]).then((values) => { 
+    // to safe the return value in a variable
+    // const value = await new Promise((resolve) => {
+    //     loadCart(() => {
+    //         resolve();  
+    //     });
+    // })
 
-    console.log(values);
     renderOrderSummary();
     renderPaymentSummary();
     renderCheckoutHeader(); 
-}); 
+}
+
+loadPage();
+
+
+// multiple promises at the same time   
+// Promise.all([
+
+//     // fetch is cleaner and gives a promise back
+//     loadProductsFetch(),
+
+
+    // new Promise((resolve) => {
+    //     loadCart(() => {
+    //         resolve();  
+    //     });
+    // })
+
+// ]).then((values) => { 
+
+//     console.log(values);
+//     renderOrderSummary();
+//     renderPaymentSummary();
+//     renderCheckoutHeader(); 
+// }); 
 
 
 // promises running one after another   
