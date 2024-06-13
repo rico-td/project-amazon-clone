@@ -51,27 +51,27 @@ const car2 = new Car({
     model: 'A4'
 }); 
 
-// car1.displayInfo();
+car1.displayInfo();
 
-// for (let i = 0; i < 40; i++) {
-//     car1.go();
-// }
+for (let i = 0; i < 40; i++) {
+    car1.go();
+}
 
-// car1.break();
-// car1.displayInfo();
+car1.break();
+car1.displayInfo();
 
 //  exaple 2
-// car2.displayInfo();
-// car2.go();
-// car2.openTrunk(); 
-// car2.displayInfo();  
-// car2.go();
-// car2.closeTrunk();
-// car2.go();
-// car2.go();
-// car2.displayInfo();
+car2.displayInfo();
+car2.go();
+car2.openTrunk(); 
+car2.displayInfo();  
+car2.go();
+car2.closeTrunk();
+car2.go();
+car2.go();
+car2.displayInfo();
 
-// console.log(car1, car2);
+console.log(car1, car2);
 
 
 class RaceCar extends Car{
