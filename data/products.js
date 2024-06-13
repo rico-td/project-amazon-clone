@@ -57,35 +57,6 @@ class Clothing extends Product {
     </a>`;
   }
 }
-// method Date()
-// const date = new Date();
-// console.log(date);
-// console.log(date.toLocaleTimeString());
-
-// console.log(this)
-
-// error: object2 was not created so .this points to nothing, its undefiend
-// const object2 = {
-//   a: 2,
-//   b: this.a,
-// }
-// console.log(object2);
-
-// with.call 'this' get the value of the past parameter
-// function logThis() {
-//   console.log(this);
-// }
-// logThis();
-// logThis.call('hello');
-
-// 
-// const object3 = {
-//   method: () => {
-//     console.log(this);
-//   }
-// };
-
-// object3.method();
 
 // export const products = [
 //   {
@@ -798,7 +769,3 @@ export function loadProductsFetch() {
 
   return promise; 
 }
-
-// loadProductsFetch().then(() => {
-//   console.log('loading...');
-// });
