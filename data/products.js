@@ -745,6 +745,13 @@ export function loadProducts(fun) {
 
   });
 
+  // error handling wiht callbacks
+  // xhr.addEventListener("error", (error) => {
+  //   console.log('something went wrong');
+  // });
+
+
+
   xhr.open("GET", "https://supersimplebackend.dev/products");
   xhr.send();
 }
@@ -764,8 +771,12 @@ export function loadProductsFetch() {
         return new Product(productDetails);
     });
     
-    console.log('load products')  
-  }); 
+    console.log('load products')
+
+  }).catch((error) => {
+    console.log(e)
+        console.log('something went wrong');
+    });
 
   return promise; 
 }
