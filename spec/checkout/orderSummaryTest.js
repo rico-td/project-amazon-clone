@@ -1,7 +1,7 @@
 import {renderOrderSummary} from '../../scripts/checkout/orderSummary.js'
 import {loadFromStorage} from '../../data/cart.js';
 import { cart } from '../../data/cart.js';
-
+import { loadProducts } from '../../data/products.js';
 
 document.addEventListener('DOMContentLoaded', () => {  
   describe('test suite: renderOrderSummary():', () => {
@@ -10,6 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let productId2 = '0d7f9afa-2efe-4fd9-b0fd-ba5663e0a524';
 
     const testingContainer = document.querySelector('.js-testing-container');
+
+    beforeAll((done) => { 
+      loadProducts(() => {
+        done();
+      });
+    })
 
     beforeEach(() => {
 
