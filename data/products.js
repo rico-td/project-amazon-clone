@@ -56,7 +56,6 @@ class Clothing extends Product {
       size chart
     </a>`;
   }
-
 }
 // method Date()
 // const date = new Date();

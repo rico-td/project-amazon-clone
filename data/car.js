@@ -11,7 +11,7 @@ class Car {
     }
 
     displayInfo() { 
-        console.log(`${this.#brand} ${this.#model} Speed: ${this.speed} isTrunkOpen: ${this.isTrunkOpen}`)
+        // console.log(`${this.#brand} ${this.#model} Speed: ${this.speed} isTrunkOpen: ${this.isTrunkOpen}`)
     }
 
 
@@ -61,17 +61,17 @@ const car2 = new Car({
 // car1.displayInfo();
 
 //  exaple 2
-car2.displayInfo();
-car2.go();
-car2.openTrunk(); 
-car2.displayInfo();  
-car2.go();
-car2.closeTrunk();
-car2.go();
-car2.go();
-car2.displayInfo();
+// car2.displayInfo();
+// car2.go();
+// car2.openTrunk(); 
+// car2.displayInfo();  
+// car2.go();
+// car2.closeTrunk();
+// car2.go();
+// car2.go();
+// car2.displayInfo();
 
-console.log(car1, car2);
+// console.log(car1, car2);
 
 
 class RaceCar extends Car{
